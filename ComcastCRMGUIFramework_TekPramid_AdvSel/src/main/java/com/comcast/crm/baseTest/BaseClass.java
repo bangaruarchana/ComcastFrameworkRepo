@@ -46,7 +46,9 @@ public class BaseClass {
 	@BeforeClass
 	public void LaunchBrowser() throws Exception {
 		System.out.println("===Launch the Browser===");
-		String Browser=	fLib.getDatafromPropertiesFile("browser");
+		//String Browser=	fLib.getDatafromPropertiesFile("browser");
+		
+		String Browser=System.getProperty("browser",fLib.getDatafromPropertiesFile("browser"));
 		if(Browser.equals("chrome")) {
 			driver= new ChromeDriver();
 		}
@@ -65,9 +67,13 @@ public class BaseClass {
 	public void Login() throws Exception {
 		System.out.println("===Login===");
 		Login_Page lp=new Login_Page(driver);
-		String Url=fLib.getDatafromPropertiesFile("url");
-		String Username=fLib.getDatafromPropertiesFile("username");
-		String Password=fLib.getDatafromPropertiesFile("password");
+//		String Url=fLib.getDatafromPropertiesFile("url");
+//		String Username=fLib.getDatafromPropertiesFile("username");
+//		String Password=fLib.getDatafromPropertiesFile("password");
+		
+		String Url=System.getProperty("url",fLib.getDatafromPropertiesFile("url"));
+		String Username=System.getProperty("username",fLib.getDatafromPropertiesFile("username"));
+		String Password=System.getProperty("Password",fLib.getDatafromPropertiesFile("Password"));
 		lp.LoginToApp(Url,Username, Password);
 	}
 
