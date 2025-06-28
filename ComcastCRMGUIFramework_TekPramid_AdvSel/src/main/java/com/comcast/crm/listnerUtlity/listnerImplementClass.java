@@ -68,12 +68,13 @@ public class listnerImplementClass  implements ITestListener, ISuiteListener{
 		
 		String time=new Date().toString().replace(" ","_").replace(":", "_");
 		test.addScreenCaptureFromBase64String(filePath,testName+" "+time);
-		test.log(Status.INFO, result.getMethod().getMethodName()+"====FAILED====");
+		test.log(Status.FAIL, result.getMethod().getMethodName()+"====FAILED====");
 
 	}
 
 	@Override
 	public void onTestSkipped(ITestResult result) {
+		test.log(Status.SKIP,result.getMethod().getMethodName()+"====Skipped====" );
 
 	}
 
