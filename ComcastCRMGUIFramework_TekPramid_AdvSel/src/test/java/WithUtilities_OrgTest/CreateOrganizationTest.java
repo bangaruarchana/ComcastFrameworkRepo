@@ -68,6 +68,7 @@ public class CreateOrganizationTest extends BaseClass {
 		String actualOrgName= oip.getHeaderMsg().getText();
 		boolean status=actualOrgName.contains(orgName);
 		Assert.assertEquals(status, true);
+		
 
 	}
 	
